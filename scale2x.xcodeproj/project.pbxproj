@@ -11,6 +11,8 @@
 		E3831A97290129860005AC2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3831A96290129860005AC2B /* ContentView.swift */; };
 		E3831A99290129870005AC2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3831A98290129870005AC2B /* Assets.xcassets */; };
 		E3831A9C290129870005AC2B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3831A9B290129870005AC2B /* Preview Assets.xcassets */; };
+		E3831AA3290129B10005AC2B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3831AA2290129B10005AC2B /* ImagePicker.swift */; };
+		E3E8C92829012CE800C57386 /* Scale2x.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E8C92729012CE800C57386 /* Scale2x.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E3831A96290129860005AC2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E3831A98290129870005AC2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3831A9B290129870005AC2B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E3831AA2290129B10005AC2B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		E3E8C92729012CE800C57386 /* Scale2x.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scale2x.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				E3831A96290129860005AC2B /* ContentView.swift */,
 				E3831A98290129870005AC2B /* Assets.xcassets */,
 				E3831A9A290129870005AC2B /* Preview Content */,
+				E3831AA2290129B10005AC2B /* ImagePicker.swift */,
+				E3E8C92729012CE800C57386 /* Scale2x.swift */,
 			);
 			path = scale2x;
 			sourceTree = "<group>";
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3831AA3290129B10005AC2B /* ImagePicker.swift in Sources */,
 				E3831A97290129860005AC2B /* ContentView.swift in Sources */,
+				E3E8C92829012CE800C57386 /* Scale2x.swift in Sources */,
 				E3831A95290129860005AC2B /* scale2xApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
