@@ -2,7 +2,7 @@ import SwiftUI
 import PhotosUI
 
 struct ContentView: View {
-    
+
     @State private var image = UIImage()
     @State private var image2x = UIImage()
     
@@ -13,15 +13,15 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            
             Spacer()
             VStack{
-                Text(imageTooLarge ? "⚠️ Please use a smaller image. ⚠️" : "Scale 2x").bold().font(.title)
+                Text("Scale 2x").bold().font(.largeTitle).padding()
                 Spacer()
                 Image(uiImage: self.image)
                     .interpolation(.none)
                     .resizable()
                     .scaledToFill()
-                    .frame(width:UIScreen.screenWidth/2, height: UIScreen.screenWidth/2)
                     .clipped()
                     .background(Color.black.opacity(0.2))
                     .scaledToFill()
@@ -30,10 +30,13 @@ struct ContentView: View {
                     .opacity(hoveringImage ?  0.9 : 1)
                     .onHover { h in
                         hoveringImage = h
-                    }.padding(.horizontal, 20)
+                    }
                     .onTapGesture {
                         showSheet = true
-                    }
+                    }.overlay(
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color.white, lineWidth: 1)
+                    ).padding(.horizontal, 20)
                 Spacer()
                 Text("V").bold().font(.largeTitle)
                 
@@ -41,14 +44,16 @@ struct ContentView: View {
                 Image(uiImage: self.image2x)
                     .interpolation(.none)
                     .resizable()
-                    .frame(width:UIScreen.screenWidth/2, height: UIScreen.screenWidth/2)
+                    .scaledToFill()
+                    .clipped()
                     .background(Color.black.opacity(0.2))
-                    .aspectRatio(1.0, contentMode: .fill)
+                    .scaledToFill()
+                    .aspectRatio(1.0, contentMode: .fit)
                     .cornerRadius(30)
-                    .opacity(hoveringImage ?  0.9 : 1)
-                    .onHover { h in
-                        hoveringImage = h
-                    }.padding(.horizontal, 20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color.white, lineWidth: 1)
+                    ).padding(.horizontal, 20)
                 Spacer()
             }
             Spacer()
@@ -56,7 +61,7 @@ struct ContentView: View {
                 .font(.headline)
                 .frame(maxWidth: .infinity)
                 .frame(height: 50)
-                .background(LinearGradient(gradient: Gradient(colors: [Color(.green), Color(.purple)]), startPoint: .leading, endPoint: .trailing))
+                .background(LinearGradient(gradient: Gradient(colors: [Color(red: 146/255, green: 220/255, blue: 229/255), Color(red: 82/255, green: 222/255, blue: 229/255)]), startPoint: .top, endPoint: .bottom))
                 .hoverEffect(.automatic)
                 .cornerRadius(15)
                 .opacity(hoveringText ?  0.9: 1)
@@ -73,10 +78,7 @@ struct ContentView: View {
         .sheet(isPresented: $showSheet, onDismiss: startScale2x) {
             // Pick an image from the photo library:
             ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
-            
-            //  If you wish to take a photo from camera instead:
-            // ImagePicker(sourceType: .camera, selectedImage: self.$image)
-        }
+        }.background(Color(red: 238/255, green: 229/255, blue: 233/255))
     }
     
     func startScale2x(){
@@ -92,7 +94,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().previewDevice(PreviewDevice(rawValue: "ifon"))
     }
 }
 
