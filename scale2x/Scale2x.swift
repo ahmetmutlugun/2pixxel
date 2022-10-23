@@ -11,18 +11,22 @@ import UIKit
 func initScale2x(image: UIImage) -> UIImage{
     // run your work
     let start = CFAbsoluteTimeGetCurrent()
-    
-    let img = scale2x(image: image)
-    
-    print(start - CFAbsoluteTimeGetCurrent())
-    if img != nil{
-        return img!
+    let pixelData = getPixelData(image: image)
+    if pixelData != nil{
+        let img = scale2x(current: pixelData!)
+        if img != nil{
+            let finalImage = pixelToImage(pixelData: img!)
+            if finalImage != nil{
+                print("Time spent processing: \(CFAbsoluteTimeGetCurrent()-start)")
+                return finalImage!
+            }
+        }
     }
+    
     return image
 }
 
-func scale2x(image:UIImage) -> UIImage? {
-    
+func getPixelData(image: UIImage) -> [[[UInt8]]]? {
     let size = image.size
     let dataSize = size.width * size.height * 4
     if dataSize > 10000000{
@@ -42,7 +46,6 @@ func scale2x(image:UIImage) -> UIImage? {
     context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
     
     var current = [[[UInt8]]]()
-    var new = [[[UInt8]]]()
     
     let width = Int(size.width)
     let height = Int(size.height)
@@ -52,6 +55,13 @@ func scale2x(image:UIImage) -> UIImage? {
         current.append(current_row.chunked(into: 4))
     }
     
+    return current
+}
+
+func scale2x(current:[[[UInt8]]]) -> [[[UInt8]]]? {
+    let height = current.count
+    let width = current[0].count
+    var pixelData = [[[UInt8]]]()
     
     for cols in 0...height-1{
         var row = [[UInt8]]()
@@ -79,15 +89,29 @@ func scale2x(image:UIImage) -> UIImage? {
             row2.append(c3)
             row2.append(c4)
         }
-        new.append(row)
-        new.append(row2)
+        pixelData.append(row)
+        pixelData.append(row2)
     }
-    var byteArr = Array(new.joined().joined())
+    return pixelData
+    
+}
+
+func scale3x(current:[[[UInt8]]]) -> [[[UInt8]]]? {
+    //TODO
+    return current
+}
+
+func pixelToImage(pixelData: [[[UInt8]]]) -> UIImage?{
+    let height = pixelData.count
+    let width = pixelData[0].count
+    let colorSpace = CGColorSpaceCreateDeviceRGB()
+    
+    var byteArr = Array(pixelData.joined().joined())
     let context2 = CGContext(data: &byteArr,
-                            width: width * 2,
-                            height: height * 2,
+                            width: width,
+                            height: height,
                             bitsPerComponent: 8,
-                            bytesPerRow: 8 * width,
+                            bytesPerRow: 4 * width,
                             space: colorSpace,
                             bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)
     if context2 != nil{
@@ -95,8 +119,7 @@ func scale2x(image:UIImage) -> UIImage? {
         let finalImg = UIImage(cgImage: img!)
         return finalImg
     }
-
-    return image
+    return nil
 }
 
 extension Array {
