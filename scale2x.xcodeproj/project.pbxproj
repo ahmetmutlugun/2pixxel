@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E3035B3E2903F38C00FC0392 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E3035B3D2903F38C00FC0392 /* .gitignore */; };
+		E3035B402904E1A200FC0392 /* OptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3035B3F2904E1A200FC0392 /* OptionSelector.swift */; };
 		E3831A95290129860005AC2B /* scale2xApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3831A94290129860005AC2B /* scale2xApp.swift */; };
 		E3831A97290129860005AC2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3831A96290129860005AC2B /* ContentView.swift */; };
 		E3831A99290129870005AC2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3831A98290129870005AC2B /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		E3035B3D2903F38C00FC0392 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E3035B3F2904E1A200FC0392 /* OptionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSelector.swift; sourceTree = "<group>"; };
 		E3831A91290129860005AC2B /* scale2x.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scale2x.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3831A94290129860005AC2B /* scale2xApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scale2xApp.swift; sourceTree = "<group>"; };
 		E3831A96290129860005AC2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +43,7 @@
 		E3831A88290129860005AC2B = {
 			isa = PBXGroup;
 			children = (
+				E3035B3F2904E1A200FC0392 /* OptionSelector.swift */,
 				E3035B3D2903F38C00FC0392 /* .gitignore */,
 				E3831A93290129860005AC2B /* scale2x */,
 				E3831A92290129860005AC2B /* Products */,
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3035B402904E1A200FC0392 /* OptionSelector.swift in Sources */,
 				E3831AA3290129B10005AC2B /* ImagePicker.swift in Sources */,
 				E3831A97290129860005AC2B /* ContentView.swift in Sources */,
 				E3E8C92829012CE800C57386 /* Scale2x.swift in Sources */,

@@ -29,10 +29,6 @@ func initScale2x(image: UIImage) -> UIImage{
 func getPixelData(image: UIImage) -> [[[UInt8]]]? {
     let size = image.size
     let dataSize = size.width * size.height * 4
-    if dataSize > 10000000{
-        print("Image is too big!")
-        return nil
-    }
     var pixelData = [UInt8](repeating: 0, count: Int(dataSize))
     let colorSpace = CGColorSpaceCreateDeviceRGB()
     let context = CGContext(data: &pixelData,
